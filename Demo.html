@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>隨機顯示照片</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/* 共用樣式 */
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			padding: 20px;
+		}
+		h1 {
+			margin-top: 0;
+		}
+		button {
+			background-color: #007bff;
+			border: none;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		img {
+			max-width: 100%;
+		}
+		.qr-code {
+			margin-top: 30px;
+		}
+	</style>
+	<script>
+		// 創建一個隨機顯示照片的函數
+		function randomImage() {
+			// 定義三張照片的路徑
+			var images = [
+				"image1.jpg",
+				"image2.jpg",
+				"image3.jpg"
+			];
+			// 隨機選擇一張照片
+			var randomIndex = Math.floor(Math.random() * images.length);
+			var randomImage = images[randomIndex];
+			// 將照片顯示在預覽框中
+			var preview = document.getElementById("preview");
+			preview.src = randomImage;
+		}
+	</script>
+</head>
+<body>
+	<h1>隨機顯示照片</h1>
+	<button onclick="randomImage()">顯示隨機照片</button>
+	<br><br>
+	<img id="preview" src="" width="300">
+	<div class="qr-code">
+		<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fexample.com%2F" alt="QR Code">
+	</div>
+</body>
+</html>
